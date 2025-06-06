@@ -1,7 +1,4 @@
 ﻿Cycle start time,Cycle end time,Cycle timezone,Workout start time,Workout end time,Duration (min),Activity name,Activity Strain,Energy burned (cal),Max HR (bpm),Average HR (bpm),HR Zone 1 %,HR Zone 2 %,HR Zone 3 %,HR Zone 4 %,HR Zone 5 %,GPS enabled,Distance (meters),Altitude gain (meters),Altitude change (meters)
-6/16/24 1:41,6/17/24 5:35,UTC-07:00,6/16/24 20:09,6/16/24 21:27,78,Manual Labor-Skates,2.3,108,111,80,18,0,0,0,0,FALSE,1142.28,136.97,-6.28
-6/14/24 1:43,6/15/24 2:14,UTC-07:00,6/14/24 8:57,6/14/24 10:41,103,Manual Labor-Skates,6.9,320,146,95,45,24,5,0,0,FALSE,1862.35,117.98,-0.39
-6/11/24 1:47,6/12/24 2:52,UTC-07:00,6/11/24 18:49,6/11/24 19:43,53,Manual Labor-Skates,6.3,217,137,102,46,38,6,0,0,FALSE,,,
 11/30/22 2:12,12/1/22 4:42,UTC-08:00,11/30/22 19:03,11/30/22 19:51,47,Manual Labor-Shoes,10.8,472,157,130,1,21,58,20,0,FALSE,,,
 9/6/22 0:00,9/6/22 23:42,UTC-07:00,9/6/22 16:57,9/6/22 17:49,51,Manual Labor-Shoes,9.4,385,158,117,20,38,33,7,0,FALSE,,,
 6/16/22 1:24,6/17/22 0:59,UTC-07:00,6/16/22 20:27,6/16/22 21:15,48,Manual Labor-Shoes,9.7,363,175,116,10,48,32,6,4,FALSE,,,
