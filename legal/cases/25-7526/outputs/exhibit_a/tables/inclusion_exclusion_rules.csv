@@ -1,0 +1,9 @@
+rule_type,cohort,rule
+include,Walking,basic walking or walking/manual-labor records from verified corpus
+include,Mall/PT controlled skating,"controlled, mall, no-step, PT, therapy, or parking-lot skating"
+exclude,Primary walking comparator,exclude FNS/SNS/ENS/XNS endurance skating
+include,ParaTransit bus/cutaway,ParaTransit records tagged bus or cutaway
+include,ParaTransit van,ParaTransit records tagged van
+include,ParaTransit sedan,ParaTransit records tagged sedan or taxi
+caution,WHOOP,"physiological context, not precise vehicle-mode proof"
+caution,Kubios,"z-axis is vertical-impact proxy, not exact anatomical force"

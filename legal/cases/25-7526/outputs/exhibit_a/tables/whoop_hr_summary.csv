@@ -1,0 +1,4 @@
+category,records,mean_avg_hr,median_avg_hr,highest_avg_hr,highest_max_hr,mean_hrv,mean_strain
+walking,33,123.39,129.0,158.0,195.0,38.47,9.75
+skates,596,112.97,113.0,143.0,197.0,36.05,12.61
+paratransit_surrogate,112,88.38,87.0,134.0,171.0,35.33,3.76
