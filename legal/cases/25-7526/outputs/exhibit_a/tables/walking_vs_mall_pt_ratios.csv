@@ -1,0 +1,5 @@
+metric,walking,mall_pt_controlled_skating,walking_to_mall_pt_ratio
+vertical_mean,99.86,65.51,1.52
+vertical_rms,131.77,87.7,1.5
+movement_std,127.07,83.67,1.52
+peaks_per_min,29.06,27.76,1.05

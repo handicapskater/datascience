@@ -1,0 +1,15 @@
+vehicle,metric,vehicle_value,sedan_value,ratio_vs_sedan
+ParaTransit bus/cutaway,rri_hr,90.29,103.68,0.87
+ParaTransit bus/cutaway,vertical_mean,114.56,74.77,1.53
+ParaTransit bus/cutaway,vertical_rms,178.67,119.48,1.5
+ParaTransit bus/cutaway,movement_std,121.86,65.29,1.87
+ParaTransit bus/cutaway,peaks_per_min,31.57,21.54,1.47
+ParaTransit bus/cutaway,peak_abs,2717.68,1954.9,1.39
+ParaTransit bus/cutaway,peak_to_peak,4750.0,2883.0,1.65
+ParaTransit van,rri_hr,110.61,103.68,1.07
+ParaTransit van,vertical_mean,115.7,74.77,1.55
+ParaTransit van,vertical_rms,181.08,119.48,1.52
+ParaTransit van,movement_std,96.65,65.29,1.48
+ParaTransit van,peaks_per_min,25.63,21.54,1.19
+ParaTransit van,peak_abs,2813.89,1954.9,1.44
+ParaTransit van,peak_to_peak,5022.5,2883.0,1.74

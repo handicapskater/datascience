@@ -1,0 +1,5 @@
+doc_id,source_type,warning_type,details
+GLOBAL_METHOD_CAVEAT,kubios,kubios_orientation_proxy,"Kubios accelerometer orientation was not independently calibrated to a laboratory coordinate system. z-axis dynamic acceleration is used as a consistent vertical-impact proxy, not exact anatomical vertical force."
+GLOBAL_METHOD_CAVEAT,kubios,rri_hr_not_pain_score,RRI-derived HR is an event-level physiological proxy. It is not a clinical pain score.
+GLOBAL_METHOD_CAVEAT,whoop,whoop_granularity,WHOOP is used for longitudinal physiological context. It is not the precise bus/van/sedan comparator in this exhibit.
+GLOBAL_METHOD_CAVEAT,strava,strava_scope,Strava is used for functional route and distance evidence. It is not a bus/van/sedan comparator in this corpus.

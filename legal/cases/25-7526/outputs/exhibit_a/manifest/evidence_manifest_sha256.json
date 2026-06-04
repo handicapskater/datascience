@@ -1,0 +1,25 @@
+{
+  "generated_at_utc": "2026-06-04T11:45:39.539761+00:00",
+  "case_id": "25-7526",
+  "exhibit_id": "exhibit_a",
+  "snapshot_date": "2026-06-03",
+  "strict_hash_check": true,
+  "raw_corpus_url": "https://raw.githubusercontent.com/handicapskater/datascience/main/legal/cases/25-7526/data/2026-06-03_fsicss_legal_corpus_categorized.jsonl",
+  "files": [
+    {
+      "case_id": "25-7526",
+      "exhibit_id": "exhibit_a",
+      "snapshot_date": "2026-06-03",
+      "logical_name": "2026-06-03_fsicss_legal_corpus_categorized.jsonl",
+      "resolved_path": "/Users/troywilkes/repos/datascience/legal/cases/25-7526/data/2026-06-03_fsicss_legal_corpus_categorized.jsonl",
+      "file_name": "2026-06-03_fsicss_legal_corpus_categorized.jsonl",
+      "size_bytes": 4545772,
+      "modified_time_utc": "2026-06-04T10:18:58.511978+00:00",
+      "sha256": "f31810dadd85e57a8ae5199af504d6f0708349f05bc651ae66a8d05079d917db",
+      "expected_sha256": "f31810dadd85e57a8ae5199af504d6f0708349f05bc651ae66a8d05079d917db",
+      "status": "PASS",
+      "raw_corpus_url": "https://raw.githubusercontent.com/handicapskater/datascience/main/legal/cases/25-7526/data/2026-06-03_fsicss_legal_corpus_categorized.jsonl",
+      "candidates_found": "/Users/troywilkes/repos/datascience/legal/cases/25-7526/data/2026-06-03_fsicss_legal_corpus_categorized.jsonl"
+    }
+  ]
+}
