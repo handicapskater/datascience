@@ -1,12 +1,22 @@
 .idea/*
 261_23567_174-pycharm-support-libs/*
 .ipynb_checkpoints/
+**/.ipynb_checkpoints/
 __pycache__/
 *.pyc
 .DS_Store
 exports/
-legal/cases/25-7526/outputs/**
-!legal/cases/25-7526/outputs/exhibit_a/
-!legal/cases/25-7526/outputs/exhibit_a/README.md
-!legal/cases/25-7526/outputs/exhibit_a/manifest/
-!legal/cases/25-7526/outputs/exhibit_a/manifest/evidence_manifest_sha256.json
+
+# Ignore generated legal outputs by default
+legal/cases/*/outputs/**
+
+# Keep output folder documentation
+!legal/cases/*/outputs/
+!legal/cases/*/outputs/README.md
+
+# Keep filed court artifact metadata for case 25-7526
+!legal/cases/25-7526/outputs/exhibit_a_filed_2026-06-04/
+!legal/cases/25-7526/outputs/exhibit_a_filed_2026-06-04/README.md
+!legal/cases/25-7526/outputs/exhibit_a_filed_2026-06-04/manifest/
+!legal/cases/25-7526/outputs/exhibit_a_filed_2026-06-04/manifest/evidence_manifest_sha256.json
+!legal/cases/25-7526/outputs/exhibit_a_filed_2026-06-04/manifest/evidence_manifest_sha256.csv
