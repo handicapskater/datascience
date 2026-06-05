@@ -44,7 +44,7 @@ class NotebookOutputArchitectureTest(unittest.TestCase):
             with self.subTest(path=path):
                 self.assertTrue(path.exists(), path)
 
-    def test_code_cells_parse_and_outputs_are_stripped(self) -> None:
+    def test_code_cells_parse_and_research_outputs_are_stripped(self) -> None:
         for path in NOTEBOOKS:
             notebook = load_notebook(path)
             for index, cell in enumerate(notebook["cells"]):
@@ -52,6 +52,8 @@ class NotebookOutputArchitectureTest(unittest.TestCase):
                     continue
                 with self.subTest(path=path.name, cell=index):
                     ast.parse("".join(cell.get("source", [])))
+                    if path == FILED_NOTEBOOK:
+                        continue
                     self.assertEqual(cell.get("outputs", []), [])
                     self.assertIsNone(cell.get("execution_count"))
 
@@ -61,12 +63,11 @@ class NotebookOutputArchitectureTest(unittest.TestCase):
         source = joined_sources(load_notebook(FILED_NOTEBOOK))
         markdown = joined_sources(load_notebook(FILED_NOTEBOOK), "markdown")
         self.assertIn("Filed Exhibit A Reproducibility Notebook", markdown)
-        self.assertIn("Exhibit_A_Wearable_Biomechanical_ParaTransit.pdf", markdown)
-        self.assertIn(
-            "jupyter nbconvert --to pdf legal/notebooks/NonTraditional_Mobility_Aid_Biomechanics_ParaTransit_Burden.ipynb --TemplateExporter.exclude_input=True",
-            markdown,
-        )
+        self.assertIn("legal/cases/25-7526/filed/Exhibit_A_Wearable_Biomechanical_ParaTransit.pdf", markdown)
+        self.assertIn("court, defendants, and technical reviewers", markdown)
         self.assertIn("def find_repo_root() -> Path:", source)
+        self.assertIn("COLAB_REPO_ROOT", source)
+        self.assertIn("def is_repo_root(path: Path) -> bool:", source)
         self.assertIn("from legal.src.evidence_config import EvidenceConfig", source)
         self.assertIn("from legal.src.evidence_paths import FILED_RECORD_RUN_ID", source)
         self.assertIn('mode="FILED_RECORD"', source)
@@ -107,6 +108,11 @@ class NotebookOutputArchitectureTest(unittest.TestCase):
         self.assertIn(
             "!legal/cases/25-7526/outputs/exhibit_a_filed_2026-06-04/manifest/evidence_manifest_sha256.json",
             gitignore,
+        )
+        gitattributes = (REPO_ROOT / ".gitattributes").read_text(encoding="utf-8")
+        self.assertIn(
+            "legal/notebooks/NonTraditional_Mobility_Aid_Biomechanics_ParaTransit_Burden.ipynb -filter",
+            gitattributes,
         )
 
 
