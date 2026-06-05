@@ -6,7 +6,7 @@ from pathlib import Path
 
 
 NOTEBOOK = Path("legal/notebooks/NonTraditional_Mobility_Aid_Biomechanics_ParaTransit_Burden.ipynb")
-LOCK_FILE = Path("legal/cases/25-7526/outputs/exhibit_a_filed_2026-06-03/NonTraditional_notebook.sha256")
+LOCK_FILE = Path("legal/cases/25-7526/outputs/exhibit_a_filed_2026-06-04/NonTraditional_notebook.sha256")
 LOCK_ERROR = (
     "Frozen filed Exhibit A notebook has changed. Do not modify this notebook unless making an intentional "
     "filed-record correction. For research changes, use "

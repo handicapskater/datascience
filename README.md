@@ -1,5 +1,73 @@
 # Jupyter Notebook Setup
 
+## Filed Exhibit A Verification Commands
+
+Run these commands from the repository root.
+
+### Court-safe hash checks
+
+```sh
+make check-filed-input-data-hash
+```
+
+Verifies that:
+
+`legal/cases/25-7526/data/2026-06-03_fsicss_legal_corpus_categorized.jsonl`
+
+matches the SHA-256 recorded in:
+
+`legal/cases/25-7526/data/SHA256SUMS.txt`
+
+```sh
+make check-filed-notebook-lock
+```
+
+Verifies that:
+
+`legal/notebooks/NonTraditional_Mobility_Aid_Biomechanics_ParaTransit_Burden.ipynb`
+
+matches the frozen notebook SHA-256 recorded in:
+
+`legal/cases/25-7526/outputs/exhibit_a_filed_2026-06-04/NonTraditional_notebook.sha256`
+
+```sh
+make check-filed-artifact-locks
+```
+
+Runs the filed input data hash check, the frozen notebook lock check, and the `legal.src` import smoke test. This is the main court-safety verification command before reproducing Exhibit A.
+
+### Reproduction and import checks
+
+```sh
+make smoke-test-legal-imports
+```
+
+Verifies that `legal.src` imports work from the repository root and that the filed Exhibit A output path resolves correctly.
+
+```sh
+make reproduce-filed-exhibit-a
+```
+
+Reproduces the filed Exhibit A PDF from the frozen notebook and writes:
+
+`legal/cases/25-7526/outputs/exhibit_a_filed_2026-06-04/Exhibit_A_Wearable_Biomechanical_ParaTransit.pdf`
+
+It also writes:
+
+`legal/cases/25-7526/outputs/exhibit_a_filed_2026-06-04/Exhibit_A_Wearable_Biomechanical_ParaTransit.pdf.sha256`
+
+### Intentional filed-record correction
+
+```sh
+make update-filed-exhibit-a-lock
+```
+
+Updates the frozen notebook hash lock after an intentional filed-record correction. Do not use this for ongoing research changes. Use:
+
+`legal/notebooks/Wearable_Biomechanical_ParaTransit_Reproducible.ipynb`
+
+for living wearable biomechanics and ParaTransit research.
+
 ### Ensure Homebrew is up-to-date
 brew update
 brew upgrade

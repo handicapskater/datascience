@@ -2,7 +2,7 @@
 set -euo pipefail
 
 NOTEBOOK="legal/notebooks/NonTraditional_Mobility_Aid_Biomechanics_ParaTransit_Burden.ipynb"
-OUT_DIR="legal/cases/25-7526/outputs/exhibit_a_filed_2026-06-03"
+OUT_DIR="legal/cases/25-7526/outputs/exhibit_a_filed_2026-06-04"
 OUT_NAME="Exhibit_A_Wearable_Biomechanical_ParaTransit.pdf"
 
 mkdir -p "${OUT_DIR}"
