@@ -91,19 +91,19 @@ class NotebookOutputArchitectureTest(unittest.TestCase):
     def test_shared_output_constants_are_current(self) -> None:
         from legal.src.evidence_paths import FILED_RECORD_RUN_ID, WEARABLE_RESEARCH_RUN_ID
 
-        self.assertEqual(FILED_RECORD_RUN_ID, "exhibit_a_filed_2026-06-03")
+        self.assertEqual(FILED_RECORD_RUN_ID, "exhibit_a_filed_2026-06-04")
         self.assertEqual(WEARABLE_RESEARCH_RUN_ID, "wearable_research_current")
 
     def test_gitignore_keeps_notebooks_and_ignores_research_outputs(self) -> None:
         gitignore = (REPO_ROOT / ".gitignore").read_text(encoding="utf-8")
         self.assertNotIn("*.ipynb", gitignore)
         self.assertIn("legal/cases/*/outputs/**", gitignore)
-        self.assertIn("!legal/cases/25-7526/outputs/exhibit_a_filed_2026-06-03/README.md", gitignore)
+        self.assertNotIn("exhibit_a_filed_2026-06-03", gitignore)
+        self.assertIn("!legal/cases/25-7526/outputs/exhibit_a_filed_2026-06-04/README.md", gitignore)
         self.assertIn(
-            "!legal/cases/25-7526/outputs/exhibit_a_filed_2026-06-03/NonTraditional_notebook.sha256",
+            "!legal/cases/25-7526/outputs/exhibit_a_filed_2026-06-04/NonTraditional_notebook.sha256",
             gitignore,
         )
-        self.assertIn("!legal/cases/25-7526/outputs/exhibit_a_filed_2026-06-04/README.md", gitignore)
         self.assertIn(
             "!legal/cases/25-7526/outputs/exhibit_a_filed_2026-06-04/manifest/evidence_manifest_sha256.json",
             gitignore,
