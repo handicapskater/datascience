@@ -1,2 +1,12 @@
 .idea/*
 261_23567_174-pycharm-support-libs/*
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.DS_Store
+exports/
+legal/cases/25-7526/outputs/**
+!legal/cases/25-7526/outputs/exhibit_a/
+!legal/cases/25-7526/outputs/exhibit_a/README.md
+!legal/cases/25-7526/outputs/exhibit_a/manifest/
+!legal/cases/25-7526/outputs/exhibit_a/manifest/evidence_manifest_sha256.json
