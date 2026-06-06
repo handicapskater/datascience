@@ -4,6 +4,40 @@
 
 Run these commands from the repository root.
 
+### Canonical filed PDF
+
+```sh
+make verify-filed-exhibit-a
+```
+
+Verifies the canonical court-filed PDF:
+
+`legal/cases/25-7526/filed/Exhibit_A_Wearable_Biomechanical_ParaTransit.pdf`
+
+The check confirms the recorded SHA-256, 15-page count, and required Exhibit A title text on page 1.
+
+```sh
+make update-filed-exhibit-a-hash
+```
+
+Updates the filed PDF hash only after intentionally replacing the filed court artifact.
+
+```sh
+make reproduce-filed-exhibit-a-candidate
+```
+
+Generates a candidate PDF under:
+
+`legal/cases/25-7526/reproduced_candidate/`
+
+It does not overwrite the canonical filed PDF.
+
+```sh
+make compare-filed-exhibit-a
+```
+
+Compares the generated candidate PDF to the canonical filed PDF by byte hash, page count, and extracted text.
+
 ### Court-safe hash checks
 
 ```sh
@@ -55,6 +89,24 @@ Reproduces the filed Exhibit A PDF from the frozen notebook and writes:
 It also writes:
 
 `legal/cases/25-7526/outputs/exhibit_a_filed_2026-06-04/Exhibit_A_Wearable_Biomechanical_ParaTransit.pdf.sha256`
+
+### Normalized notebook integrity
+
+```sh
+make hash-nontraditional-notebook
+```
+
+Verifies the normalized integrity hash for:
+
+`legal/notebooks/NonTraditional_Mobility_Aid_Biomechanics_ParaTransit_Burden.ipynb`
+
+The normalized hash ignores execution counts, outputs, and selected volatile metadata. It is not a byte-for-byte notebook hash.
+
+```sh
+make update-nontraditional-notebook-hash
+```
+
+Updates the normalized notebook hash after an intentional filed-record notebook correction.
 
 ### Intentional filed-record correction
 

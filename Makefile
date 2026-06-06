@@ -24,3 +24,27 @@ check-filed-exhibit-a-lock:
 .PHONY: update-filed-exhibit-a-lock
 update-filed-exhibit-a-lock:
 	python legal/scripts/check_filed_exhibit_a_lock.py --update
+
+.PHONY: verify-filed-exhibit-a
+verify-filed-exhibit-a:
+	python legal/scripts/verify_filed_exhibit_a.py
+
+.PHONY: update-filed-exhibit-a-hash
+update-filed-exhibit-a-hash:
+	python legal/scripts/verify_filed_exhibit_a.py --update
+
+.PHONY: hash-nontraditional-notebook
+hash-nontraditional-notebook:
+	python legal/scripts/hash_notebook_stable.py
+
+.PHONY: update-nontraditional-notebook-hash
+update-nontraditional-notebook-hash:
+	python legal/scripts/hash_notebook_stable.py --update
+
+.PHONY: reproduce-filed-exhibit-a-candidate
+reproduce-filed-exhibit-a-candidate:
+	bash legal/scripts/reproduce_filed_exhibit_a_candidate.sh
+
+.PHONY: compare-filed-exhibit-a
+compare-filed-exhibit-a:
+	python legal/scripts/compare_exhibit_pdf_text.py

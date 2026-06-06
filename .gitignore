@@ -6,6 +6,7 @@ __pycache__/
 *.pyc
 .DS_Store
 exports/
+legal/cases/*/reproduced_candidate/
 
 # Ignore generated legal outputs by default
 legal/cases/*/outputs/**
