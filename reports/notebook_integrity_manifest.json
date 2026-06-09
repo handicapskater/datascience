@@ -1,0 +1,50 @@
+{
+  "byte_size": 36999,
+  "dependency_versions": {
+    "jupyter": "not available",
+    "matplotlib": "3.10.9",
+    "nbconvert": "7.17.1"
+  },
+  "dirty_worktree_status": "M legal/notebooks/Wearable_Biomechanical_ParaTransit_Reproducible.ipynb\n M tests/test_notebook_output_architecture.py\n?? scripts/",
+  "evidence_jsonl_path": "/Users/troywilkes/repos/fsicss-iomt-evidence-platform/data/processed/integrated/integrated_mobility_evidence_context.jsonl",
+  "files": {
+    "duplicate_resolution_report": {
+      "byte_size": 6647,
+      "modified_time": "2026-06-09T07:13:02.475471+00:00",
+      "path": "/Users/troywilkes/repos/fsicss-iomt-evidence-platform/reports/integrated_evidence_duplicate_resolution_report.md",
+      "sha256": "760b60ae7e55234aeca1aa48369194cbe9c84e583dcf316f8c7f983abb4ddaba"
+    },
+    "evidence_jsonl": {
+      "byte_size": 30586755,
+      "modified_time": "2026-06-09T06:57:12.214889+00:00",
+      "path": "/Users/troywilkes/repos/fsicss-iomt-evidence-platform/data/processed/integrated/integrated_mobility_evidence_context.jsonl",
+      "sha256": "0eee285ee2729aa925a46ebf046a0ab0113ee31b241de80768a27d29da744860"
+    },
+    "integrated_legal_evidence_table": {
+      "byte_size": 9291,
+      "modified_time": "2026-06-09T07:13:02.476007+00:00",
+      "path": "/Users/troywilkes/repos/fsicss-iomt-evidence-platform/reports/integrated_mobility_legal_evidence_table.md",
+      "sha256": "ca396e3bf3b7f309c59c87089937a1332ae4dc99d8a6b378a82fd8e40877d3a6"
+    },
+    "integrated_summary_report": {
+      "byte_size": 3676,
+      "modified_time": "2026-06-09T07:13:02.475765+00:00",
+      "path": "/Users/troywilkes/repos/fsicss-iomt-evidence-platform/reports/integrated_mobility_evidence_context_summary.md",
+      "sha256": "3efc422bc83d2a6190da3dbebd848e81c6f2b506910653ca426f5782a6ef0da9"
+    },
+    "notebook": {
+      "byte_size": 36999,
+      "modified_time": "2026-06-09T19:28:42.910114+00:00",
+      "path": "/Users/troywilkes/repos/datascience/legal/notebooks/Wearable_Biomechanical_ParaTransit_Reproducible.ipynb",
+      "sha256": "dacb22193cba50783acd59ec0673e1d159407fbb3ff9928798134ec55efeee37"
+    }
+  },
+  "generated_at_utc": "2026-06-09T19:28:55.482770+00:00",
+  "git_branch": "notebook/pr22-finalize-wearable-mobility-case-study",
+  "git_commit": "4dc2777a27516874b12ca67ffca0aaaf0d90aad4",
+  "modified_time": "2026-06-09T19:28:42.910114+00:00",
+  "notebook_path": "legal/notebooks/Wearable_Biomechanical_ParaTransit_Reproducible.ipynb",
+  "platform": "macOS-14.7.3-arm64-arm-64bit-Mach-O",
+  "python_version": "3.14.4 (main, Apr  7 2026, 13:13:20) [Clang 16.0.0 (clang-1600.0.26.6)]",
+  "sha256": "dacb22193cba50783acd59ec0673e1d159407fbb3ff9928798134ec55efeee37"
+}

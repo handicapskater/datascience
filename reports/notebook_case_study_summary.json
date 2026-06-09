@@ -1,0 +1,122 @@
+{
+  "cohort_findings": {
+    "baseline_recovery_readiness_exclusion": {
+      "count": 950,
+      "interpretation": "Excluded from activity-burden comparison because these records are baseline/recovery/readiness context."
+    },
+    "motorcycle_comparator": {
+      "caveat": "Comparator transport; not automatically lower burden in every metric.",
+      "count": 373,
+      "date_range": "2021-03-22 to 2026-05-19",
+      "source_systems": [
+        "kubios",
+        "strava",
+        "whoop"
+      ]
+    },
+    "paratransit_horseback_surrogate": {
+      "caveat": "Horseback Riding is a disclosed user-defined ParaTransit surrogate, not literal horseback activity.",
+      "count": 116,
+      "date_range": "2025-01-10 to 2026-06-07",
+      "hr_hrv_available": 0,
+      "kubios_targeted_count": 0
+    },
+    "silverride_successful_accommodation": {
+      "count": 1,
+      "interpretation": "Successful accommodation comparator.",
+      "source_systems": [
+        "kubios"
+      ]
+    },
+    "skating_mobility_aid": {
+      "fns_sns_count": 850,
+      "hr_hrv_available": 0,
+      "interpretation": "Skating is treated as mobility-aid context unless source review supports a narrower role.",
+      "mall_no_step_pt_count": 20,
+      "route_gps_available": 923,
+      "rri_accelerometer_available": 26,
+      "total_skating_count": 1549
+    },
+    "walking_exposure_limited": {
+      "count": 3,
+      "date_range": "2026-05-12 to 2026-05-14",
+      "interpretation": "Small walking count reflects exposure limitation because walking is the painful exposure; it is not absence of burden."
+    },
+    "wheelchair_substitution_context": {
+      "caveat": "Context requires review.",
+      "count": 80,
+      "source_systems": [
+        "strava",
+        "strava+whoop",
+        "whoop"
+      ]
+    }
+  },
+  "court_safe_caveats": [
+    "not a medical diagnosis",
+    "no single metric establishes pain by itself",
+    "no guaranteed legal outcome",
+    "no pain/legal/walking/ParaTransit scalar introduced",
+    "duplicates retained for audit and excluded from primary summaries"
+  ],
+  "duplicate_summary": {
+    "duplicate_excluded_records_retained_for_audit": 4935,
+    "included_evidence_events": 3453,
+    "kubios_attached_to_whoop_strava_events": 0,
+    "kubios_only_events": 71,
+    "needs_review_included_events": 973,
+    "strava_rows_with_whoop_like_labels": 631,
+    "whoop_strava_merged_events": 4
+  },
+  "evidence_jsonl_found": true,
+  "evidence_jsonl_loaded_path": "/Users/troywilkes/repos/fsicss-iomt-evidence-platform/data/processed/integrated/integrated_mobility_evidence_context.jsonl",
+  "evidence_path_role": "primary sibling source project",
+  "expected_facts": {
+    "baseline_recovery_readiness_excluded_count": 950,
+    "commuting_taxi_rediWheels_sedan_count": 8,
+    "duplicate_excluded_records_retained": 4935,
+    "fns_sns_high_exertion_pt_count": 850,
+    "fsi_css_availability_count": 71,
+    "horseback_paratransit_surrogate_count": 116,
+    "hr_hrv_availability_count": 2854,
+    "included_evidence_events": 3453,
+    "included_in_motion_burden_analysis": 2503,
+    "kubios_attached_events": 0,
+    "kubios_input_records": 71,
+    "kubios_only_events": 71,
+    "mall_no_step_pt_skating_count": 20,
+    "motorcycle_comparator_count": 373,
+    "needs_review_included_events": 973,
+    "output_integrated_jsonl_records": 8388,
+    "route_gps_availability_count": 1837,
+    "rri_accelerometer_availability_count": 71,
+    "silverride_successful_accommodation_count": 1,
+    "strava_input_records": 3674,
+    "strava_only_events": 1833,
+    "strava_rows_with_whoop_like_labels": 631,
+    "walking_exposure_limited_count": 3,
+    "wheelchair_substitution_context_count": 80,
+    "whoop_input_records": 4647,
+    "whoop_only_events": 1545,
+    "whoop_strava_merged_events": 4
+  },
+  "figures": [
+    "reports/figures/notebook_included_events_by_activity_family.png",
+    "reports/figures/notebook_source_system_counts.png",
+    "reports/figures/notebook_burden_included_vs_baseline_excluded.png",
+    "reports/figures/notebook_skating_subtypes.png",
+    "reports/figures/notebook_paratransit_subtypes.png",
+    "reports/figures/notebook_evidence_type_availability.png",
+    "reports/figures/notebook_timeline_by_year_activity_family.png",
+    "reports/figures/notebook_duplicate_handling.png"
+  ],
+  "primary_evidence_input_path": "/Users/troywilkes/repos/fsicss-iomt-evidence-platform/data/processed/integrated/integrated_mobility_evidence_context.jsonl",
+  "record_count_loaded": 8388,
+  "reports": [
+    "reports/notebook_integrated_cohort_summary.csv",
+    "reports/notebook_integrated_cohort_summary.md",
+    "reports/notebook_integrity_manifest.md",
+    "reports/notebook_integrity_manifest.json"
+  ],
+  "title": "Wearable Mobility Evidence Case Study: Non-Traditional Mobility Aid, ParaTransit Burden, and Individualized Accommodation Review"
+}
