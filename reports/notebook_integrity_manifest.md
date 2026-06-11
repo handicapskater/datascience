@@ -1,11 +1,9 @@
 # Notebook Integrity Manifest
 
-- Generated UTC: 2026-06-09T19:28:55.482770+00:00
+- Generated UTC: 2026-06-09T19:34:58.225507+00:00
 - Git branch: notebook/pr22-finalize-wearable-mobility-case-study
-- Git commit: 4dc2777a27516874b12ca67ffca0aaaf0d90aad4
-- Dirty worktree status: `M legal/notebooks/Wearable_Biomechanical_ParaTransit_Reproducible.ipynb
- M tests/test_notebook_output_architecture.py
-?? scripts/`
+- Git commit: 83145799e28e66bb7e7f916f025e27abe3d23db3
+- Dirty worktree status: `not available`
 - Python: 3.14.4 (main, Apr  7 2026, 13:13:20) [Clang 16.0.0 (clang-1600.0.26.6)]
 - Platform: macOS-14.7.3-arm64-arm-64bit-Mach-O
 
