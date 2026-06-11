@@ -24,7 +24,7 @@ Appellant's walking test covered only several hundred feet, while controlled Mal
 
 ## ParaTransit Bus/Van vs Sedan
 
-ParaTransit bus/cutaway and van rides should be evaluated as passive mechanical stressors, not as ordinary seated travel. The data shows higher accelerometer-derived vertical-impact proxy and movement burden in bus/van rides than sedan rides. This is consistent with Appellant's individualized medical and biomechanics record, including pelvic/SI limitations and lower-impact skate-based mobility support. A direct sedan-based, route-limited accommodation is therefore medically and biomechanically grounded.
+ParaTransit bus/cutaway and van rides should be evaluated as passive mechanical stressors, not as ordinary seated travel. The data supports a finding of higher accelerometer-derived vertical-impact proxy and movement burden in bus/van rides than sedan rides. This is consistent with Appellant's individualized medical and biomechanics record, including pelvic/SI limitations and lower-impact skate-based mobility support. A direct sedan-based, route-limited accommodation is therefore medically and biomechanically grounded.
 
 ## Sedan Front-Seat Access Issue
 
@@ -32,4 +32,4 @@ A sedan is not automatically accessible if Appellant is forced into the back sea
 
 ## One-Paragraph Exhibit Caveat
 
-The accelerometer evidence is offered as objective corroboration, not as a standalone clinical diagnosis or exact force measurement. Kubios device orientation was not independently calibrated to a laboratory coordinate system, so the z-axis dynamic acceleration is treated as a consistent vertical-impact proxy. Using the same method across comparable sessions, the data shows greater relative movement burden during walking than controlled Mall/PT skating and greater passive movement burden during ParaTransit bus/cutaway and van rides than sedan rides. These findings are considered together with medical records, biomechanics support, WHOOP physiological context, Strava route evidence, video evidence, and Appellant's declaration testimony.
+The accelerometer evidence is offered as objective corroboration, not as a standalone clinical diagnosis or exact force measurement. Kubios device orientation was not independently calibrated to a laboratory coordinate system, so the z-axis dynamic acceleration is treated as a consistent vertical-impact proxy. Using the same method across comparable sessions, the data supports a finding of greater relative movement burden during walking than controlled Mall/PT skating and greater passive movement burden during ParaTransit bus/cutaway and van rides than sedan rides. These findings are considered together with medical records, biomechanics support, WHOOP physiological context, Strava route evidence, video evidence, and Appellant's declaration testimony.

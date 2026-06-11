@@ -15,9 +15,10 @@ DEFAULT_NOTEBOOKS = (FILED_NOTEBOOK, RESEARCH_NOTEBOOK)
 
 
 def selected_notebooks() -> tuple[Path, ...]:
-    paths = tuple(Path(arg).resolve() for arg in sys.argv[1:])
+    notebook_args = [arg for arg in sys.argv[1:] if arg.endswith(".ipynb")]
+    paths = tuple(Path(arg).resolve() for arg in notebook_args)
     if paths:
-        sys.argv[1:] = []
+        sys.argv[1:] = [arg for arg in sys.argv[1:] if not arg.endswith(".ipynb")]
         return paths
     return DEFAULT_NOTEBOOKS
 
