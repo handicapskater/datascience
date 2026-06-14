@@ -2,7 +2,7 @@
 261_23567_174-pycharm-support-libs/*
 .ipynb_checkpoints/
 **/.ipynb_checkpoints/
-__pycache__/
+**/__pycache__/**
 *.pyc
 .DS_Store
 exports/
