@@ -1,5 +1,19 @@
 # Jupyter Notebook Setup
 
+## Notebook Roles
+
+Start here before editing or citing notebooks:
+
+`docs/notebook_roles.md`
+
+Short version:
+
+- Frozen filed Exhibit A notebook: `legal/notebooks/NonTraditional_Mobility_Aid_Biomechanics_ParaTransit_Burden.ipynb`
+- Living wearable research notebook: `legal/notebooks/Wearable_Biomechanical_ParaTransit_Reproducible.ipynb`
+- Legacy/supporting public notebook: `HandicapSkater-Public.ipynb`
+
+The frozen filed notebook and filed PDF are locked court-record artifacts. Ongoing wearable research belongs in the living wearable notebook and generated research outputs, not in the filed-record path.
+
 ## Filed Exhibit A Verification Commands
 
 Run these commands from the repository root.
