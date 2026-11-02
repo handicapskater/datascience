@@ -1,5 +1,13 @@
 PYTHON ?= python
 
+.PHONY: public-notebook-check public-notebook-figures
+public-notebook-check:
+	$(PYTHON) -m unittest discover -s tests -p 'test_public_notebooks.py'
+	$(PYTHON) scripts/public_notebook_evidence.py
+
+public-notebook-figures:
+	$(PYTHON) scripts/public_notebook_evidence.py --render
+
 .PHONY: smoke-test-legal-imports
 smoke-test-legal-imports:
 	$(PYTHON) legal/scripts/smoke_test_legal_imports.py

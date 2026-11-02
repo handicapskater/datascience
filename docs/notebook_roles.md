@@ -1,6 +1,25 @@
 # Notebook Roles and Boundaries
 
-This repository has three notebook roles. They should not be treated as interchangeable.
+This repository separates current public companions, living private research,
+and frozen legal reproduction. They should not be treated as interchangeable.
+
+## Current public companions (September 2026)
+
+- `HandicapSkater-Public.ipynb`: systematic technical portfolio, governed
+  aggregate mobility evidence, and referenced conclusions, retaining its role
+  as the original longitudinal WHOOP/Strava and hypothesis foundation.
+  Historical modeling designs remain visible without republishing unvalidated
+  performance.
+- `HandicapSkater-Scientific.ipynb`: research lineage, hypothesis-to-metric
+  crosswalk, source/time-scale distinctions, methods and synthesis readiness.
+- `HandicapSkater-ScientificSuccinct.ipynb`: compact reviewer summary.
+
+See `public_notebooks.md` for setup, source/hash verification and the local
+historical backups. These notebooks are not legal reproduction sources.
+The external [research evolution companion](research_evolution.md) explains how
+the original questions informed the legal source-role design and how targeted
+Polar/Kubios evidence was integrated and refined. It does not backdate later
+findings into the filed record or claim row-level equivalence across versions.
 
 ## 1. Frozen filed Exhibit A notebook
 
@@ -38,7 +57,7 @@ Role:
 
 This notebook may consume integrated evidence and produce platform-facing research outputs, but it does not update the filed Exhibit A PDF or the frozen Exhibit A notebook lock.
 
-## 3. Legacy/supporting public notebook
+## 3. Foundational longitudinal public analysis
 
 Path:
 
@@ -46,8 +65,15 @@ Path:
 
 Role:
 
-- Preserve earlier public/scientific exploration and supporting narrative context.
-- Provide historical analysis context that predates the filed legal evidence architecture.
-- Serve as a legacy supporting notebook, not the canonical legal reproduction path.
+- The original Public notebook established the longitudinal WHOOP/Strava
+  analysis and explicit hypotheses that informed the legal notebook design.
+  The source history and pre-update bytes remain in Git and ignored backups.
+- The current root Public notebook restores the systematic overview and
+  technical narrative alongside governed aggregate evidence. Its model
+  templates are non-executing and its bibliography records corrections and
+  unresolved sources. Corrections attach to specific methods and claims; they
+  do not discard the foundational observations or rewrite the legal notebooks.
+  Historical hypothesis authority is distinct from current numerical-result
+  authority and from the frozen exhibit's own source and value locks.
 
 Do not cite this notebook as the filed Exhibit A reproduction source. For filed legal verification, use the frozen Exhibit A notebook and `make` commands above.

@@ -1,199 +1,77 @@
-# Jupyter Notebook Setup
+# HandicapSkater evidence notebooks
 
-## Notebook Roles
+This is a continuing N-of-1 research program: the original Public notebook
+established the longitudinal WHOOP/Strava analysis and hypotheses; those
+informed the legal notebook design, which already incorporated targeted
+Kubios/Polar H10 evidence; the current work refines the combined longitudinal
+and episodic approach with more specific metrics and validation.
 
-Start here before editing or citing notebooks:
+Read the [research evolution and hypothesis crosswalk](docs/research_evolution.md)
+for that scientific progression and its connection to the preserved legal
+record. Current results use a small public aggregate excerpt through 2026-09-03.
 
-`docs/notebook_roles.md`
+| Notebook | Read it for |
+| --- | --- |
+| [Public](HandicapSkater-Public.ipynb) | Technical project overview: Data Engineering, Statistics, Deep Learning, Model Evaluation, XGBoost/SHAP, current mobility evidence, and referenced conclusions |
+| [Scientific](HandicapSkater-Scientific.ipynb) | Hypothesis-to-metric continuity, methods, source/time-scale provenance, inference grain and FSI/CSS readiness |
+| [Scientific Succinct](HandicapSkater-ScientificSuccinct.ipynb) | A compact reviewer summary |
 
-Short version:
+The central finding combines repeated walking distance loss, greater distance
+with PT skating, and higher walking vertical acceleration/jerk than Mall
+skating. Results support an individualized functional-accommodation argument.
+They do not directly measure pain or establish medical/legal necessity alone.
 
-- Frozen filed Exhibit A notebook: `legal/notebooks/NonTraditional_Mobility_Aid_Biomechanics_ParaTransit_Burden.ipynb`
-- Living wearable research notebook: `legal/notebooks/Wearable_Biomechanical_ParaTransit_Reproducible.ipynb`
-- Legacy/supporting public notebook: `HandicapSkater-Public.ipynb`
+![Published group medians for Mall versus walking mechanics and walking versus PT distance, each with 44 eligible paired dates](data/public/figures/skating_evidence.png)
 
-The frozen filed notebook and filed PDF are locked court-record artifacts. Ongoing wearable research belongs in the living wearable notebook and generated research outputs, not in the filed-record path.
+## Run locally
 
-## Filed Exhibit A Verification Commands
-
-Run these commands from the repository root.
-
-### Canonical filed PDF
-
-```sh
-make verify-filed-exhibit-a
-```
-
-Verifies the canonical court-filed PDF:
-
-`legal/cases/25-7526/filed/Exhibit_A_Wearable_Biomechanical_ParaTransit.pdf`
-
-The check confirms the recorded SHA-256, 15-page count, and required Exhibit A title text on page 1.
+The narrative, tables and figure are readable without execution. To run the
+aggregate-only presentation cells:
 
 ```sh
-make update-filed-exhibit-a-hash
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements-public.txt
+make public-notebook-check PYTHON=.venv/bin/python
+.venv/bin/jupyter notebook
 ```
 
-Updates the filed PDF hash only after intentionally replacing the filed court artifact.
-
-```sh
-make reproduce-filed-exhibit-a-candidate
-```
-
-Generates a candidate PDF under:
-
-`legal/cases/25-7526/reproduced_candidate/`
-
-It does not overwrite the canonical filed PDF.
-
-```sh
-make compare-filed-exhibit-a
-```
-
-Compares the generated candidate PDF to the canonical filed PDF by byte hash, page count, and extracted text.
-
-### Court-safe hash checks
-
-```sh
-make check-filed-input-data-hash
-```
-
-Verifies that:
-
-`legal/cases/25-7526/data/2026-06-03_fsicss_legal_corpus_categorized.jsonl`
-
-matches the SHA-256 recorded in:
-
-`legal/cases/25-7526/data/SHA256SUMS.txt`
-
-```sh
-make check-filed-notebook-lock
-```
-
-Verifies that:
-
-`legal/notebooks/NonTraditional_Mobility_Aid_Biomechanics_ParaTransit_Burden.ipynb`
-
-matches the frozen notebook SHA-256 recorded in:
-
-`legal/cases/25-7526/outputs/exhibit_a_filed_2026-06-04/NonTraditional_notebook.sha256`
-
-```sh
-make check-filed-artifact-locks
-```
-
-Runs the filed input data hash check, the frozen notebook lock check, and the `legal.src` import smoke test. This is the main court-safety verification command before reproducing Exhibit A.
-
-### Reproduction and import checks
-
-```sh
-make smoke-test-legal-imports
-```
-
-Verifies that `legal.src` imports work from the repository root and that the filed Exhibit A output path resolves correctly.
-
-```sh
-make reproduce-filed-exhibit-a
-```
-
-Reproduces the filed Exhibit A PDF from the frozen notebook and writes:
-
-`legal/cases/25-7526/outputs/exhibit_a_filed_2026-06-04/Exhibit_A_Wearable_Biomechanical_ParaTransit.pdf`
-
-It also writes:
-
-`legal/cases/25-7526/outputs/exhibit_a_filed_2026-06-04/Exhibit_A_Wearable_Biomechanical_ParaTransit.pdf.sha256`
-
-### Normalized notebook integrity
-
-```sh
-make hash-nontraditional-notebook
-```
-
-Verifies the normalized integrity hash for:
-
-`legal/notebooks/NonTraditional_Mobility_Aid_Biomechanics_ParaTransit_Burden.ipynb`
-
-The normalized hash ignores execution counts, outputs, and selected volatile metadata. It is not a byte-for-byte notebook hash.
-
-```sh
-make update-nontraditional-notebook-hash
-```
-
-Updates the normalized notebook hash after an intentional filed-record notebook correction.
-
-### Intentional filed-record correction
-
-```sh
-make update-filed-exhibit-a-lock
-```
-
-Updates the frozen notebook hash lock after an intentional filed-record correction. Do not use this for ongoing research changes. Use:
-
-`legal/notebooks/Wearable_Biomechanical_ParaTransit_Reproducible.ipynb`
-
-for living wearable biomechanics and ParaTransit research.
-
-### Ensure Homebrew is up-to-date
-brew update
-brew upgrade
-
-### Install Python with pyenv
-pyenv install 3.10
-
-pipenv --python /opt/local/bin/python3.10
-
-### Create a new project directory and navigate to it
-mkdir my_notebook_project
-
-cd my_notebook_project
-
-
-conda create -n datascience python=3.10
-
-conda activate datascience
-
-conda install jupyter numpy pandas matplotlib seaborn scikit-learn
-
-conda install ipykernel
-
-conda update -n base -c conda-forge conda
-
-python -m ipykernel install --user --name myenv --display-name "Python 3.10 (myenv)"
-
-jupyter notebook
-
-jupyter trust HandicapSkater-DataScience.ipynb
-
-
-[//]: # (from notebook import trust)
-
-[//]: # ()
-[//]: # (notebook_path = 'DataScience.ipynb')
-
-[//]: # ()
-[//]: # (trust.mark_notebook_as_trusted&#40;notebook_path&#41;)
-
-### Create a new pipenv environment with the Homebrew-installed Python
-
-[//]: # (pipenv --python /usr/local/bin/python3)
-pipenv --python /opt/local/bin/python3.10
-
-pipenv --python `which python`
-
-### Install Jupyter and other dependencies
-pipenv install jupyter
-
-pipenv install numpy pandas matplotlib seaborn scikit-learn
-
-### Activate the pipenv shell
-pipenv shell
-
-### Install ipykernel
-pipenv install ipykernel
-
-### Add the pipenv environment to Jupyter
-python -m ipykernel install --user --name=HandicapSkater --display-name "Python 3.10 (HandicapSkater)"
-
-### Run Jupyter Notebook
-jupyter notebook
+Launch Jupyter from the repository root. If the Notebook interface is not
+installed, open these files in your existing Jupyter-compatible editor and
+select this virtual environment's Python kernel. The notebook cells require
+the accompanying `scripts/` and `data/public/` directories.
+
+See the [public notebook guide](docs/public_notebooks.md) for source/hash
+verification, local rendering, historical preservation and disclosure limits.
+See the [FSI/CSS integration design](docs/fsi_css_notebook_integration.md) for
+the input mapping and proposed Observatory adoption path.
+
+## Evidence boundaries
+
+> N-of-1 evidence model. Wearable signals estimate physiologic, MSK,
+> movement, and transport burden; source artifacts and validation layers remain
+> available for audit.
+
+The new excerpt contains six primary aggregate findings and supporting
+summaries, with no session rows, raw telemetry, routes, or medical/legal files.
+This does not certify unrelated historical files or Git history as public-safe.
+WHOOP overnight recovery HRV and Kubios/Polar H10 episodic HRV remain distinct.
+FSI/CSS formulas and the Evidence Observatory are unchanged.
+
+## Legal and historical notebooks
+
+Read [notebook roles](docs/notebook_roles.md) before editing or citing
+historical material. The frozen filed notebook and living legal research
+notebook are described in [the legal README](legal/README.md).
+
+Every file under `legal/` was preserved during this public update. Existing
+raw-notebook-lock and reproduction discrepancies remain documented in the
+workspace audit; preservation does not mean those pre-existing checks pass.
+Do not run legal reproduction or hash-update commands as part of public
+notebook maintenance. The original expected legal hashes were not changed.
+
+Earlier root notebook bytes are preserved in Git history and ignored local
+backups. Their longitudinal observations and hypothesis-generation contribution
+remain foundational; corrections qualify specific analyses rather than erase
+that history. Later findings do not rewrite the filed snapshot or automatically
+revalidate its numerical claims. The pre-existing Public PDF is a legacy
+artifact and was not refreshed.

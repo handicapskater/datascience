@@ -1,0 +1,259 @@
+{
+  "schema_version": "notebook_public_evidence.v1",
+  "snapshot_date": "2026-09-10",
+  "data_through_date": "2026-09-03",
+  "scope": "N-of-1 aggregate evidence; no participant-level or session-level records",
+  "sources": {
+    "biomechanics": {
+      "url": "https://handicapskater.com/data/public/evidence-observatory/v1/biomechanics-evidence.json",
+      "sha256": "72fb09078c2878a284a898797c2e0e6b8c98abe5da7c4352d72d6f53179ee7b9",
+      "content_hash": "13056a9b1c36fbbcae2ec24dbcd359a5d07b9a16f23b925b5e4cfb5d63057cad",
+      "resource_version": "fsi_publication_resource.v1"
+    },
+    "core": {
+      "url": "https://handicapskater.com/data/public/evidence-observatory/v1/computational-evidence.json",
+      "sha256": "817264738ad583db5b0c33fa579d1280cedf78d1ad09fdf5b55e3ebf5c929859",
+      "content_hash": "350369c54212a6e90506ff85a2fd9be6f604b30ce140ab31ebb30a5a43d343cb",
+      "resource_version": "fsi_publication_resource.v1"
+    }
+  },
+  "core_findings": [
+    {
+      "CI": "[-1.8808, -1.8465]",
+      "classification": "CONFIRMATORY_STRONG",
+      "comparison": "Mall→Walking",
+      "direction_consistency": "100.0%",
+      "effect": "median paired Δ -1.8644 mi",
+      "evidence_id": "triplet_distance_miles_Mall_to_Walk",
+      "grain": "whole reviewed triplet",
+      "independent_N": 44,
+      "metric": "distance_miles",
+      "p_value": "<0.001",
+      "p_value_type": "BOUNDED_UPPER",
+      "plain_language_finding": "Walking distance reduction: Mall→Walking median paired change -1.8644 mi.",
+      "source_authority": "CORE_TRIPLET_EVIDENCE.json"
+    },
+    {
+      "CI": "[1.6529, 1.6852]",
+      "classification": "CONFIRMATORY_STRONG",
+      "comparison": "Walking→PT",
+      "direction_consistency": "100.0%",
+      "effect": "median paired Δ +1.6683 mi",
+      "evidence_id": "triplet_distance_miles_Walk_to_PT",
+      "grain": "whole reviewed triplet",
+      "independent_N": 44,
+      "metric": "distance_miles",
+      "p_value": "<0.001",
+      "p_value_type": "BOUNDED_UPPER",
+      "plain_language_finding": "PT distance restoration: Walking→PT median paired change +1.6683 mi.",
+      "source_authority": "CORE_TRIPLET_EVIDENCE.json"
+    },
+    {
+      "CI": "[0.0827, 0.0861]",
+      "classification": "CONFIRMATORY_STRONG",
+      "comparison": "Mall→Walking",
+      "direction_consistency": "100.0%",
+      "effect": "median paired Δ +0.0849 g",
+      "evidence_id": "triplet_vertical_dynamic_g_rms_Mall_to_Walk",
+      "grain": "whole reviewed triplet",
+      "independent_N": 44,
+      "metric": "vertical_dynamic_g_rms",
+      "p_value": "<0.001",
+      "p_value_type": "BOUNDED_UPPER",
+      "plain_language_finding": "Walking vertical RMS increase: Mall→Walking median paired change +0.0849 g.",
+      "source_authority": "CORE_TRIPLET_EVIDENCE.json"
+    },
+    {
+      "CI": "[0.6180, 0.6610]",
+      "classification": "CONFIRMATORY_STRONG",
+      "comparison": "Mall→Walking",
+      "direction_consistency": "100.0%",
+      "effect": "median paired Δ +0.6370 g/s",
+      "evidence_id": "triplet_jerk_rms_g_per_s_Mall_to_Walk",
+      "grain": "whole reviewed triplet",
+      "independent_N": 44,
+      "metric": "jerk_rms_g_per_s",
+      "p_value": "<0.001",
+      "p_value_type": "BOUNDED_UPPER",
+      "plain_language_finding": "Walking jerk increase: Mall→Walking median paired change +0.6370 g/s.",
+      "source_authority": "CORE_TRIPLET_EVIDENCE.json"
+    },
+    {
+      "CI": "[2.1829, 4.3558]",
+      "classification": "CONFIRMATORY_STRONG",
+      "comparison": "Mall→Walking",
+      "direction_consistency": "88.6%",
+      "effect": "median paired Δ +3.0019 /min",
+      "evidence_id": "triplet_shock_spike_rate_per_min_Mall_to_Walk",
+      "grain": "whole reviewed triplet",
+      "independent_N": 44,
+      "metric": "shock_spike_rate_per_min",
+      "p_value": "<0.001",
+      "p_value_type": "BOUNDED_UPPER",
+      "plain_language_finding": "Walking shock-rate increase: Mall→Walking median paired change +3.0019 /min.",
+      "source_authority": "CORE_TRIPLET_EVIDENCE.json"
+    },
+    {
+      "CI": "[-2.0759, -1.0971]",
+      "classification": "CONFIRMATORY_STRONG",
+      "comparison": "Walking→PT",
+      "direction_consistency": "75.0%",
+      "effect": "median paired Δ -1.7744 /min",
+      "evidence_id": "triplet_shock_spike_rate_per_min_Walk_to_PT",
+      "grain": "whole reviewed triplet",
+      "independent_N": 44,
+      "metric": "shock_spike_rate_per_min",
+      "p_value": "0.001",
+      "p_value_type": "MONTE_CARLO_NUMERIC",
+      "plain_language_finding": "PT shock-rate reduction: Walking→PT median paired change -1.7744 /min.",
+      "source_authority": "CORE_TRIPLET_EVIDENCE.json"
+    }
+  ],
+  "mechanics": {
+    "vertical_rms": {
+      "N": 44,
+      "bootstrap_95CI": [
+        0.08271296564444763,
+        0.08596070145768875
+      ],
+      "direction_count": 44,
+      "evidence_tier": "PRIMARY_BIOMECHANICAL",
+      "mall_median": 0.05162916839829937,
+      "robustness": "ROBUST_ACROSS_METHODS",
+      "unit": "g",
+      "walking_median": 0.13681479676686842,
+      "walking_minus_mall": 0.08485904027921376
+    },
+    "magnitude_jerk": {
+      "N": 44,
+      "bootstrap_95CI": [
+        0.613160916144127,
+        0.659602090458441
+      ],
+      "direction_count": 44,
+      "evidence_tier": "PRIMARY_BIOMECHANICAL",
+      "mall_median": 0.643500436286534,
+      "robustness": "ROBUST_ACROSS_METHODS",
+      "unit": "g/s",
+      "walking_median": 1.2847360442694744,
+      "walking_minus_mall": 0.6370384055624052
+    }
+  },
+  "pt_distance": {
+    "bootstrap_95CI": [
+      1.6525366857551897,
+      1.6867742384474667
+    ],
+    "bootstrap_unit": "triplet/date",
+    "eligible_N": 44,
+    "known_metadata_exclusion": null,
+    "left_higher_count": 0,
+    "left_median": 0.14182797462817148,
+    "median_paired_difference_right_minus_left": 1.668319514038018,
+    "no_imputation": true,
+    "right_higher_count": 44,
+    "right_higher_fraction": 1,
+    "right_median": 1.8118873280044538,
+    "status": "PASS",
+    "tie_count": 0
+  },
+  "longitudinal": {
+    "activity_N": 598,
+    "date_N": 589,
+    "evidence_tier": "LONGITUDINAL SUPPORT",
+    "median_distance_miles": 11.470885031416525,
+    "years": [
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ]
+  },
+  "pareto": {
+    "core": {
+      "N": 43,
+      "direction_count": 43
+    },
+    "evidence_tier": "ROBUST SUPPORTING",
+    "with_shock": {
+      "N": 43,
+      "direction_count": 38
+    }
+  },
+  "fixed_reference_event_density": {
+    "N": 25,
+    "bootstrap_95CI": [
+      17.823870829839358,
+      19.430917065622385
+    ],
+    "direction_count": 25,
+    "evidence_tier": "RETROSPECTIVE MORPHOLOGY",
+    "mall_median": 0.4217432052483599,
+    "unit": "events/min",
+    "walking_median": 19.304347826086957,
+    "walking_minus_mall": 18.836367079319242
+  },
+  "tails": {
+    "N": 25,
+    "direction_count": 25,
+    "evidence_tier": "RETROSPECTIVE MORPHOLOGY",
+    "metrics": {
+      "p90_g": {
+        "N": 25,
+        "direction_count": 25,
+        "unit": "g",
+        "walking_minus_mall": 0.1926550153070415
+      },
+      "p95_g": {
+        "N": 25,
+        "direction_count": 25,
+        "unit": "g",
+        "walking_minus_mall": 0.24548381296791477
+      },
+      "p99_9_g": {
+        "N": 25,
+        "direction_count": 25,
+        "unit": "g",
+        "walking_minus_mall": 0.3445074122414462
+      },
+      "p99_g": {
+        "N": 25,
+        "direction_count": 25,
+        "unit": "g",
+        "walking_minus_mall": 0.31231218957176565
+      }
+    }
+  },
+  "shock_taxonomy": {
+    "adaptive_mad_counter_result_preserved": true,
+    "distinct_metrics": [
+      "shock-spike rate",
+      "MAD-based impact rate",
+      "fixed-reference event density",
+      "cumulative dynamic shock",
+      "cluster rate"
+    ],
+    "explanation": "The two counts use different within-activity thresholds. A broadly elevated Walking distribution can raise its own median-plus-MAD threshold and yield fewer counted local maxima even while RMS, jerk, dose, and the mean-plus-SD shock count increase."
+  },
+  "boundaries": {
+    "bct_executed": false,
+    "body_coupling_directly_measured": false,
+    "frequency_structure_available": false,
+    "internal_joint_force_measured": false,
+    "pain_identified": false
+  },
+  "scientific_recomputation": false,
+  "boundary_notes": [
+    "N-of-1 observational evidence; repeated dates are not independent people.",
+    "The fixed Mall→Walking→PT order, duration, environment, and carryover limit causal interpretation.",
+    "PT restores function but does not uniformly return mechanics or physiology to Mall.",
+    "MAD-based impact rate runs opposite to shock-spike rate; threshold definitions must remain separate.",
+    "Shock-spike magnitude has temporal instability despite full-corpus support.",
+    "WHOOP recovery HRV is overnight context, never session HRV.",
+    "Pain and internal joint force are not identified by these signals.",
+    "FSI-X01 remains unexecuted/low-information; CSS-X01 remains experimental; BCT is design-only; PVC-01 awaits new post-lock data."
+  ]
+}
