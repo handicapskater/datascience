@@ -13,9 +13,18 @@ The three root notebooks now present a small governed aggregate excerpt:
 - `HandicapSkater-ScientificSuccinct.ipynb`: compact reviewer summary.
 
 They are readable as static notebooks and run from a local repository checkout.
-The public figure contains six group medians across three panels; it is not a
-reconstruction of session records. The JSON excerpt is less than 20 KB and
-contains no session rows, activity identifiers, raw telemetry or routes.
+Public also runs from its [Google Colab launch URL](https://colab.research.google.com/github/handicapskater/datascience/blob/feature/public-notebook-reproducibility/HandicapSkater-Public.ipynb).
+Its setup retrieves the small bootstrap module and four allowlisted public files from pinned commit
+`d54b38a61cdd3135e51afd57a7b2c5cfd16d79dc` and checks their SHA-256
+hashes. Colab needs network access for the initial download. The setup is
+safe to rerun. A fresh Colab runtime has not been independently executed by
+the local test suite.
+
+The original three-panel figure contains six group medians; the new four-panel
+forest plot shows six published paired effects and their published intervals
+in separate unit scales. Neither reconstructs session records. The JSON excerpt
+is less than 20 KB and contains no session rows, activity identifiers, raw
+telemetry or routes.
 
 Public distinguishes current governed findings, historical modeling work, and
 corrected designs awaiting execution. Its dense-network architecture and
@@ -36,6 +45,13 @@ This external scientific context does not revise a filed artifact, declare
 record-level equivalence, or retrospectively validate every historical claim.
 
 ## Local setup and checks
+
+Open the notebook from this checkout in Jupyter. Its first executable cell
+finds the repository, verifies `data/public/skating_evidence.v1.json`, its
+SHA-256 sidecar, `scripts/public_notebook_evidence.py`, and
+`requirements-public-runtime.txt`, and checks the evidence schema. It
+installs the small runtime requirement only when needed. The full
+`requirements-public.txt` supports local notebook and test tooling.
 
 ```sh
 python3 -m venv .venv
@@ -74,6 +90,18 @@ make public-notebook-figures PYTHON=.venv/bin/python
 The public JSON carries source byte hashes and semantic content hashes. Core
 effects/intervals retain Core authority; IB-01 method-check summaries retain
 their separate scope. Source reuse is not independent replication.
+The paired-effect table and forest plot use the fixed Core values; the group
+median chart uses the separate published descriptive summaries. Their
+subtractions are not interchangeable. The executable validation report lists
+checks that pass and source-level facts that the public aggregate cannot
+independently establish. Historical neural-network, XGBoost and SHAP work
+remains methodological context; no predictive model runs in Public.
+
+The matching historical source blobs can be recovered read-only from the
+biomechanics repository at commits `8486c430cee1b424e338720254b0ccbb0261083d`
+(biomechanics) and `81593e8487132eff1b9d567bc99101732d6690c4`
+(computational). Current mutable publication files can have different hashes;
+the pinned excerpt must not be silently refreshed from them.
 
 ## Historical and legal preservation
 

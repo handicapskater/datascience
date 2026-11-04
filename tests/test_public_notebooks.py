@@ -55,7 +55,7 @@ class PublicBundleTests(unittest.TestCase):
 
     def test_public_model_plan_blocks_historical_leakage(self):
         markdown = self.public_markdown()
-        model_section = markdown.split('### 8.2 Why the historical performance', 1)[1].split('<a id="model-evaluation"></a>', 1)[0]
+        model_section = markdown.split('### 8.3 Why the historical performance', 1)[1].split('<a id="model-evaluation"></a>', 1)[0]
         template = re.findall(r'```python\n(.*?)```', model_section, re.DOTALL)[0]
         self.assertIn("SMOTE-generated rows", model_section)
         self.assertIn("`Manual Labor` row to `Walking`", model_section)

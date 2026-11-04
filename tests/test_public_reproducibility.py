@@ -3,7 +3,12 @@ from __future__ import annotations
 import copy
 import hashlib
 import io
+import json
+import os
+import shutil
+import sys
 import tempfile
+import types
 import unittest
 from pathlib import Path
 from unittest.mock import Mock, patch
@@ -126,6 +131,21 @@ class BootstrapTests(unittest.TestCase):
         for relative, digest in RESOURCE_SHA256.items():
             self.assertEqual(hashlib.sha256((ROOT / relative).read_bytes()).hexdigest(), digest)
 
+    def test_full_colab_resource_fetch_uses_only_allowlist(self):
+        calls = []
+        def opener(url, timeout):
+            relative = url.split(COMMIT + "/", 1)[1]
+            calls.append(relative)
+            return io.BytesIO((ROOT / relative).read_bytes())
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory)
+            ensure_resources(target, COMMIT, download=True, opener=opener)
+            ensure_resources(target, COMMIT, download=True, opener=opener)
+            self.assertEqual(set(calls), set(RESOURCE_SHA256))
+            self.assertEqual(len(calls), len(RESOURCE_SHA256))
+            with patch("scripts.public_notebook_bootstrap.ensure_runtime_dependencies", return_value=False):
+                self.assertEqual(prepare_environment(target, COMMIT, colab=False), target.resolve())
+
     def test_dependency_install_only_when_needed(self):
         requirement = ROOT / "requirements-public-runtime.txt"
         installer = Mock()
@@ -136,6 +156,68 @@ class BootstrapTests(unittest.TestCase):
         with patch("scripts.public_notebook_bootstrap.importlib.metadata.version", side_effect=PackageNotFoundError):
             self.assertTrue(ensure_runtime_dependencies(requirement, installer=installer))
         self.assertEqual(installer.call_count, 1)
+
+
+class NotebookExecutionTests(unittest.TestCase):
+    def test_bootstrap_cell_pins_the_reviewed_module(self):
+        notebook = json.loads((ROOT / "HandicapSkater-Public.ipynb").read_text())
+        source = "".join(next(cell["source"] for cell in notebook["cells"] if cell["cell_type"] == "code"))
+        from scripts import public_notebook_bootstrap as bootstrap
+        self.assertIn(hashlib.sha256(Path(bootstrap.__file__).read_bytes()).hexdigest(), source)
+        self.assertIn("d54b38a61cdd3135e51afd57a7b2c5cfd16d79dc", source)
+        self.assertIn("import google.colab", source)
+
+    def test_first_cell_fetches_pinned_bootstrap_in_simulated_colab(self):
+        notebook = json.loads((ROOT / "HandicapSkater-Public.ipynb").read_text())
+        source = "".join(next(cell["source"] for cell in notebook["cells"] if cell["cell_type"] == "code"))
+        bootstrap_bytes = (ROOT / "scripts/public_notebook_bootstrap.py").read_bytes()
+        urls = []
+        def opener(url, timeout):
+            urls.append(url)
+            return io.BytesIO(bootstrap_bytes)
+        google = types.ModuleType("google")
+        google.__path__ = []
+        colab = types.ModuleType("google.colab")
+        previous_cwd, previous_path = Path.cwd(), sys.path[:]
+        with tempfile.TemporaryDirectory() as directory:
+            try:
+                os.chdir(directory)
+                with patch.dict(sys.modules, {"google": google, "google.colab": colab}):
+                    with patch("urllib.request.urlopen", side_effect=opener):
+                        with patch("scripts.public_notebook_bootstrap.prepare_environment", return_value=ROOT):
+                            scope = {}
+                            exec(source, scope)
+                            self.assertTrue(scope["in_colab"])
+                            self.assertEqual(scope["bundle"]["schema_version"], "notebook_public_evidence.v1")
+                self.assertEqual(len(urls), 1)
+                self.assertIn(scope["PINNED_COMMIT"], urls[0])
+                self.assertEqual((Path(directory) / "handicapskater_public/scripts/public_notebook_bootstrap.py").read_bytes(), bootstrap_bytes)
+            finally:
+                os.chdir(previous_cwd)
+                sys.path[:] = previous_path
+
+    def test_complete_notebook_runs_from_clean_public_checkout(self):
+        import nbformat
+        from nbclient import NotebookClient
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory)
+            for relative in ("HandicapSkater-Public.ipynb", "scripts/public_notebook_bootstrap.py",
+                             *RESOURCE_SHA256):
+                destination = target / relative
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(ROOT / relative, destination)
+            notebook = nbformat.read(target / "HandicapSkater-Public.ipynb", as_version=4)
+            executed = NotebookClient(notebook, timeout=120, kernel_name="python3",
+                                      resources={"metadata": {"path": str(target)}}).execute()
+            code = [cell for cell in executed.cells if cell.cell_type == "code"]
+            self.assertEqual(len(code), 5)
+            self.assertFalse(any(output.output_type == "error" for cell in code for output in cell.outputs))
+            rendered = [output for cell in code for output in cell.outputs
+                        if output.output_type in ("display_data", "execute_result")]
+            markdown = "\n".join(str(output.data.get("text/markdown", "")) for output in rendered)
+            self.assertIn("Public evidence validation", markdown)
+            self.assertIn("Mall→Walking", markdown)
+            self.assertGreaterEqual(sum("image/png" in output.data for output in rendered), 2)
 
 
 if __name__ == "__main__":

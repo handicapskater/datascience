@@ -23,10 +23,16 @@ They do not directly measure pain or establish medical/legal necessity alone.
 
 ![Published group medians for Mall versus walking mechanics and walking versus PT distance, each with 44 eligible paired dates](data/public/figures/skating_evidence.png)
 
-## Run locally
+## Run in Colab or locally
 
-The narrative, tables and figure are readable without execution. To run the
-aggregate-only presentation cells:
+[Open Public directly in Google Colab](https://colab.research.google.com/github/handicapskater/datascience/blob/feature/public-notebook-reproducibility/HandicapSkater-Public.ipynb)
+and run its cells in order. The first cell downloads the pinned bootstrap,
+public aggregate, validation script, checksum, and runtime requirements. It verifies
+their hashes and installs Matplotlib only if needed. A fresh Colab runtime
+still needs direct manual verification.
+
+The narrative, tables and figures are readable without execution. For local
+execution and tests:
 
 ```sh
 python3 -m venv .venv
