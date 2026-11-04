@@ -1,0 +1,2 @@
+# Only packages imported by executable public notebook cells.
+matplotlib>=3.9,<4
